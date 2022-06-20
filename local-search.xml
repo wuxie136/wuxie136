@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>hexo命令备忘录</title>
+    <link href="/posts/fsfg1641.html"/>
+    <url>/posts/fsfg1641.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>hexo安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-cli -g<br></code></pre></td></tr></table></figure><p>hexo安装部署</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install<br></code></pre></td></tr></table></figure><p>安装hexo d的部署命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure><p>hexo一键三连。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure><h1 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs other">git config --global user.name &quot;wuxie136&quot;<br> git config --global user.email &quot;848129247@qq.com&quot;<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs othe">ssh-keygen -t rsa -C &quot;848129247@qq.com&quot;<br></code></pre></td></tr></table></figure><p>连续回车，输入下面的看密钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure><p>测试是否连接</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">ssh -T git@github.com<br></code></pre></td></tr></table></figure><h1 id="上传到仓库"><a href="#上传到仓库" class="headerlink" title="上传到仓库"></a>上传到仓库</h1><p>删除所有仓库链接</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git remote rm origin<br></code></pre></td></tr></table></figure><p>链接仓库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git remote add origin https://@github.com/wuxie136/blog136.git<br></code></pre></td></tr></table></figure><p>忽悠一些不重要的文件。<br>创建.gitignore</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs other">.DS_Store<br>Thumbs.db<br>db.json<br>*.log<br>node_modules/<br>public/<br>.deploy*/<br></code></pre></td></tr></table></figure><hr><p>上传命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs other">git add .<br>git commit –m &quot;add branch&quot;<br>git push<br></code></pre></td></tr></table></figure><p>第二种方法</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs other">git add .<br>git commit -m &#x27;注释&#x27;<br>git branch -m main<br>git push -f origin main<br></code></pre></td></tr></table></figure><h1 id="部署到page"><a href="#部署到page" class="headerlink" title="部署到page"></a>部署到page</h1><p>安装插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure><p>配置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs other">deploy:<br>  type: git<br>  repo: https://github.com/YourgithubName/YourgithubName.github.io.git<br>  branch: main<br></code></pre></td></tr></table></figure><p>一键上传</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs other">git add .<br>git commit -m &#x27;注释&#x27;<br>git branch -m main<br>git push -f origin main<br></code></pre></td></tr></table></figure><h1 id="恢复hexo"><a href="#恢复hexo" class="headerlink" title="恢复hexo"></a>恢复hexo</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git clone 仓库链接<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install<br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术＆日记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>解决一次Jsdelivr导致的样式丢失。</title>
+    <link href="/posts/8c48d2f1.html"/>
+    <url>/posts/8c48d2f1.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2021年12月20日JsD在中国访问不通，无法正常使用，后续在JsD官方在推文上发布了原因。<br>具体就是JsD失去了在中国的备案，因为JsD在国内使用的是国内的CDN加速服务，所以必须要备案才可以，当然这备案掉了肯定没那么容易再弄回来的，JsD目前已将国内加速切换到了全球CDN加速，速度是大不如从前了，要搬家的话又是一部分大工程，因为有很多人用JsD的功能来做图床用，不过幸好我没有用，不然就很头疼了。</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p><strong>更换到其他公共CDN</strong><br><strong>Staticfile CDN</strong><br><a href="http://www.staticfile.org/">http://www.staticfile.org/</a></p><blockquote><p>七牛云存储提供，我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供<br>CDN加速服务，使之有更好的访问速度和稳定的环境</p></blockquote><p>** 又拍云JS加速库**<br><a href="http://jscdn.upai.com/">http://jscdn.upai.com/</a></p><blockquote><p>又拍云为您托管常用的JavaScript库，您可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您节省流量，还能通过我们的CDN加速，获得更快的访问速度。</p></blockquote><p><strong>BootCDN</strong><br><a href="https://www.bootcdn.cn/">https://www.bootcdn.cn/</a> </p><blockquote><p>Bootstrap 中文网开源项目免费 CDN 加速服务 - 我们致力于为<br>Bootstrap、jQuery、Angular、Vue.js 一样优秀的开源项目提供稳定、快速、免费的 CDN 加速服务。BootCDN<br>是运营时间最长、用户量最大、最早同时支持 HTTPS（SSL）和 HTTP/2.0 协议的中立免费 CDN 。</p></blockquote><p><strong>75CDN</strong><br><a href="https://cdn.baomitu.com/">https://cdn.baomitu.com/</a></p><blockquote><p>360 前端静态资源库是由奇舞团支持并维护的开源项目免费 CDN 服务，支持 HTTPS<br>和 HTTP/2，囊括上千个前端资源库和 Google 字体库。</p></blockquote><p><strong>烧饼大佬的公益公共库</strong><br><a href="https://css.loli.net/">https://css.loli.net/</a> </p><blockquote><p>常用前端公共库 &amp; 和谐使用 Google 公共库、字体库的方法</p></blockquote><p><strong>字节跳动静态资源公共库</strong><br><a href="http://cdn.bytedance.com/">http://cdn.bytedance.com/</a> </p><blockquote><p>字节跳动静态资源库支持多协议、资源动态拼接、快速检索及资源的动态更新,安全、稳定、实时。</p></blockquote><p><strong>国外</strong><br><strong>CDNJS</strong><br><a href="https://cdnjs.com/">https://cdnjs.com/</a> </p><blockquote><p>The free and open source CDN for web related<br>libraries to speed up your website!</p></blockquote><p><strong>jsDelivr</strong><br><a href="https://www.jsdelivr.com/">https://www.jsdelivr.com/</a> </p><blockquote><p>jsDelivr is a public open-source CDN<br>(Content Delivery Network) where anyone can submit a project to be<br>hosted and delivered by our network.（有中国节点，还支持Github，强烈推荐！！）</p></blockquote><h2 id="更换Jsdelivr的子域名"><a href="#更换Jsdelivr的子域名" class="headerlink" title="更换Jsdelivr的子域名"></a>更换Jsdelivr的子域名</h2><p><strong>jsdelivr主域名cdn.jsdelivr.net国内已经完全被墙了，虽然可以切换成jsdelivr的子域名，不过这个CDN走的是其他线路，也不能保证以后不会被墙。</strong></p><p><strong>CloudFlare</strong>：test1.jsdelivr.net</p><p><strong>CloudFlare</strong>：testingcf.jsdelivr.net</p><p><strong>Fastly</strong>：fastly.jsdelivr.net</p><p><strong>GCORE</strong>：gcore.jsdelivr.net</p><hr><p><strong>网站目录下，输入以下命令修复</strong></p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">sed -i <span class="hljs-string">&quot;s#cdn.jsdelivr.net#fastly.jsdelivr.net#g&quot;</span> <span class="hljs-constructor">$(<span class="hljs-params">grep</span> -<span class="hljs-params">rn</span> &#x27;<span class="hljs-params">cdn</span>.<span class="hljs-params">jsdelivr</span>.<span class="hljs-params">net</span>&#x27; | <span class="hljs-params">awk</span> &#x27;&#123;<span class="hljs-params">print</span> $1&#125;&#x27; | <span class="hljs-params">awk</span> -F: &#x27;&#123;<span class="hljs-params">print</span> $1&#125;&#x27;)</span><br></code></pre></td></tr></table></figure><h2 id="反向代理Jsdelivr"><a href="#反向代理Jsdelivr" class="headerlink" title="反向代理Jsdelivr"></a>反向代理Jsdelivr</h2><p><strong>如果一定要使用jsDelivr的资源的话，可以考虑通过NGINX反代cdn.jsdelivr.net这一个资源库自用。建议通过海外优化线路落地+国内中转缓存，不过要注意添加防盗链以及尽量隐藏反代路径，以防止被其他人滥用。具体配置这里给一个简单的范例，博主不是很推荐这样做，可靠性上很打折扣。</strong></p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> /gh<br>&#123;<br>    <span class="hljs-attribute">proxy_pass</span> https://104.16.86.20;<br>    <span class="hljs-attribute">proxy_set_header</span> Host cdn.jsdelivr.net;<br>    <span class="hljs-attribute">proxy_ssl_server_name</span> <span class="hljs-literal">on</span>;<br>    <span class="hljs-attribute">proxy_ssl_name</span> cdn.jsdelivr.net;<br>    <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;<br>    <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;<br>    <span class="hljs-attribute">proxy_set_header</span> REMOTE-HOST <span class="hljs-variable">$remote_addr</span>;<br></code></pre></td></tr></table></figure><h3 id="宝塔可以直接反向代理"><a href="#宝塔可以直接反向代理" class="headerlink" title="宝塔可以直接反向代理"></a>宝塔可以直接反向代理</h3><p>我使用的是宝塔面板创建的网站</p><p>首先将域名解析到你的服务器</p><p>在宝塔面板中创建一个网站</p><p>配置反向代理。</p><blockquote><p>不要用良心云，套路云反代，有封鸡风险。<br>首先打开需要反代的域名的站点配置文件。</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>网站&amp;知识</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Jsdelivr</tag>
+      
+      <tag>反代</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>初尝试搭建hexo教程</title>
+    <link href="/posts/9fab6a2a.html"/>
+    <url>/posts/9fab6a2a.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前几天看到说hexo没有服务器也可以，因为我接触博客系统是从typecho开始的，毕竟有手就行，今天就折腾hexo，看了一下hexo类的说明感觉挺牛逼的，毕竟从来没有接触过静态博客系统，感觉挺厉害的。毕竟静态网页，没有服务器，也不可能被d和CC。</p><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>第一步去度娘看看，找到了许多安装教程，然后我硬着头皮把需要的nodejs，gjt安装好了开始安装hexo。</p><p>漂亮，折腾佬，折腾东西不出问题还是折腾佬吗。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装还是挺简单的<br>安装<strong>Node.js</strong> →<strong>安装Git</strong>  → ** 安装Hexo**   → 本地测试运行 。</p><h4 id="安装Node-js电脑下载最新版本就可以"><a href="#安装Node-js电脑下载最新版本就可以" class="headerlink" title="安装Node.js电脑下载最新版本就可以"></a>安装Node.js电脑<a href="http://nodejs.cn/download/">下载</a>最新版本就可以</h4><h4 id="安装好了利用cmd测试一下"><a href="#安装好了利用cmd测试一下" class="headerlink" title="安装好了利用cmd测试一下"></a>安装好了利用cmd测试一下</h4><pre><code class="hljs">node -vnpm -v</code></pre><h4 id="安装Git-电脑下载"><a href="#安装Git-电脑下载" class="headerlink" title="安装Git:电脑下载"></a>安装Git:电脑<a href="https://gitforwindows.org/">下载</a></h4><p><strong>安装完测试</strong><br>     git –version</p><h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p>创建一个博客目录，右键Bit Bash Here打开<br>安装命令<br>    npm install -g hexo-cli</p><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><pre><code class="hljs">hexo inithexo g`hexo s</code></pre><p>这样就可以到<a href="http://localhost:4000/">http://localhost:4000/</a> 查看了<br><strong>难度的来了，博客推送到GitHub</strong></p><h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>在创建博客之前，当然必须有GitHub的帐号，该帐号将用来创建项目，默认的域名username.github.com/projectName 中的username也要用到这个帐号。（请记住username，之后会多次用到）</p><p><strong>注意：下面涉及到的一些命令凡是更用户名和项目名有关的一律会用这里的username和projectName代替，注意替换</strong></p><h4 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h4><p>访问：<a href="https://www.github.com/">https://www.github.com/</a><br>注册你的username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱的。比如你的主页上传并构建成功会通过邮箱通知，更重要的是，如果构建失败的话也会在邮件中说明原因。</p><h3 id="创建项目仓库"><a href="#创建项目仓库" class="headerlink" title="创建项目仓库"></a>创建项目仓库</h3><p>在创建博客之前，还需要用已有的帐号创建一个项目，上面那个链接的projectName将是这里即将创建的项目名称。</p><p>在Git中，项目被称为仓库(Repository)，仓库顾名思义，当然可以包含代码或者非代码。将来我们的网页或者模板实际上都是保存在这个仓库中的。</p><p>登录后，访问<a href="https://github.com/new">https://github.com/new</a> ，创建仓库</p><p><strong>注意Repository name这里一定要填写username.github.io 这样后面才能使用Github Pages功能。</strong></p><h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>上传文件需要配置ssh key，不然无法上传。<br>首先先检查一下本地是否已经存在ssh key,在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p><pre><code class="hljs">ls -al ~/.ssh</code></pre><p>设置你的那么和email（如果你安装git时已经有了这步操作就跳过，name可以随意，但最好设置成你的github的name防止遗忘。邮箱与你的github邮箱没什么关系，但是最好写为同一个，好记住）</p><pre><code class="hljs">git config --global user.name &quot;name&quot;git config --global user.email &quot;&lt;your email&gt;&quot;</code></pre><p>生成ssh密钥<br>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：</p><pre><code class="hljs">ssh-keygen -t rsa -C &quot;XXXXX@163.com&quot;</code></pre><p>一路回车就可以了，如果设置了密码就记住。</p><p>这一步在~/.ssh/下生成了两个文件id_rsa 和        id_rsa.pub</p><p>获取key<br>    cat ~/.ssh/id_rsa.pub<br>然后拷贝key（key是以ssr（应该是这个开头的）开头 你的邮箱结尾的一长串字符。</p><h4 id="在GitHub上添加SSH密钥"><a href="#在GitHub上添加SSH密钥" class="headerlink" title="在GitHub上添加SSH密钥"></a>在GitHub上添加SSH密钥</h4><p>在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 下 add new ssh key</p><p>title可随意填写，key就是我们拷贝的key</p><p>接下来测试一下是否配置正确。</p><p>输入一下命令：</p><pre><code class="hljs">ssh git@github.com</code></pre><p>成功后大概会出现一下内容：（可能会有部分不一致）</p><h4 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h4><p>配置_config.yml<br>编辑 你所建立的hexo文件夹中_config.yml（用记事本打开）修改deployment部分。</p><p>自行替换成你的GitHub的名称。注意：每个：后面必须有一个空格！！！</p><h4 id="安装Git包"><a href="#安装Git包" class="headerlink" title="安装Git包"></a>安装Git包</h4><pre><code class="hljs"> npm install hexo-deployer-git --save</code></pre><p>部署到GitHub上<br>     hexo d<br>现在我们可以通过<a href="http://username.github.io/">http://username.github.io/</a><br>来访问我们自己的博客啦,可以看到我们的博客已成功搭建，接下来就是一些主题的优化和配置呢。<br>这是我搭建的</p><blockquote><p><a href="https://wuxie136.github.io/yunmu.github.io/">https://wuxie136.github.io/yunmu.github.io/</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>我的＆大事件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>分享图片的实用工具</title>
+    <link href="/posts/49f85275.html"/>
+    <url>/posts/49f85275.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><p><a href="https://www.picdiet.com/zh-cn">https://www.picdiet.com/zh-cn</a><br><a href="https://zh.recompressor.com/">https://zh.recompressor.com/</a><br><a href="https://tiomg.org/compress-image">https://tiomg.org/compress-image</a><br><a href="https://tool.tanpok.com/#/">https://tool.tanpok.com/#/</a><br><a href="https://tools.fun/tinyimg.html">https://tools.fun/tinyimg.html</a></p><h2 id="图床分享"><a href="#图床分享" class="headerlink" title="图床分享"></a>图床分享</h2><p>路过图床:<a href="http://imgtu.com/">http://imgtu.com</a><br>，</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>自己感觉好的知识</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>东航MU5735坠毁</title>
+    <link href="/posts/a959ab65.html"/>
+    <url>/posts/a959ab65.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="东航坠机事件时间轴"><a href="#东航坠机事件时间轴" class="headerlink" title="东航坠机事件时间轴"></a>东航坠机事件时间轴</h2><ul><li><p>3月21日14时20分许<br>有媒体报道，东方航空公司MU5735航班执行昆明—广州任务时，在广西梧州市上空失联并坠毁。MU5735原计划于3月21日13时10分在昆明长水起飞，14时52分到达广州白云国际机场，执行航班为波音737-800(NG)，机龄6.8年。</p></li><li><p>3月21日15时许<br>南宁市消防救援支队接到广西消防救援总队调度，迅速集结消防救援力量，赶赴广西梧州藤县增援波音737客机坠机事故处置工作。</p></li><li><p>3月21日16时34分<br>中国民航局网站消息：2022年3月21日，东航一架波音737客机在执行昆明——广州航班任务时，于梧州上空失联。目前，已确认该飞机坠毁。机上人员共132人，其中旅客123人、机组9人。民航局已启动应急机制，派出工作组赶赴现场。</p></li><li><p>3月21日17时31分<br>据中国东方航空消息：东航已启动应急机制，派出工作组赶赴现场，并开通应急援助电话：4008495530。</p></li><li><p>3月21日17时40分<br>广西武警总队梧州支队官兵派出30余名官兵携装先期出发，并抵达救援现场，后续还将有两批共60名支援力量赶赴现场。</p></li><li><p>3月21日18时34分<br>据新华社消息，事故发生后，中共中央总书记、国家主席、中央军委主席习近平立即作出重要指示，惊悉东航MU5735航班失事，要立即启动应急机制，全力组织搜救，妥善处置善后。国务院委派领导同志靠前协调处理，尽快查明事故原因，举一反三，加强民用航空领域安全隐患排查，狠抓责任落实，确保航空运行绝对安全，确保人民生命绝对安全。</p></li><li><p>3月21日19时左右<br>中国东航发布公告称：本次飞机失事的原因还在调查中，公司将积极配合相关调查。对本次飞机失事中遇难的旅客和机组人员表示沉痛的哀悼！</p></li><li><p>3月21日20时<br>据中国民航报消息，东航专项工作组已经随MU799航班，抵达广西梧州。<br>3月21日22时06分<br>据南部战区消息：南部战区迅速启动应急机制，梧州军分区、武警梧州支队第一时间组织救援力量赶赴事故现场展开救援。陆军某陆航旅、某合成旅、某空中突击旅，空军某运搜旅，武警驻事发地周边力量等迅速完成备勤，随时准备支援。</p></li><li><p>3月21日晚间<br>据央视新闻客户端报道，记者从国家民航局获悉，工作组已于21日晚抵达梧州，并迅速开展工作，指导协助当地现场救援、善后处置等。</p></li><li><p>3月22日凌晨<br>70多名专家、30名直升机医护组工作人员已抵达梧州，10名家属正赶往梧州，相关接送工作仍在紧张有序地开展。</p></li><li><p>3月22日凌晨<br>据央视新闻客户端报道，记者来到距离事故核心现场二三十米的地点，在这里可以看到，工作人员已在现场警戒。通过山上的灯光能够看到，搜救人员正在连夜进行搜救工作。</p></li><li><p>3月22日凌晨<br>据新华社报道，为贯彻落实习近平总书记重要指示精神，按照李克强总理召开的紧急会议部署，中共中央政治局委员、国务院副总理刘鹤和国务委员王勇代表党中央、国务院，3月21日晚率有关部门负责同志赶赴广西梧州，指导东航客机坠毁事故现场救援、善后处置及事故原因调查工作。</p></li><li><p>3月22日7时<br>波音中国相关工作人员对中新财经称：我们挂念着东航MU5735航班的每一位乘客和机组成员。我们正与东航开展合作，以向他们提供支持。同时，波音正与美国国家运输安全委员会保持联系，我们的技术专家也为协助中国民航局开展调查做好了准备。</p></li><li><p>3月22日8时<br>梧州军分区紧急出动260余名民兵赶赴事发地。据悉，目前大部分民兵已到指定地域调整待命，现场只留下事发地埌南镇的民兵应急排30名民兵，确保有任务随时出动。</p></li><li><p>3月22日9时左右<br>联合国秘书长发言人杜加里克3月21日在新闻发布会上表示，秘书长对中国东方航空mu5735航班失事的消息感到非常悲痛，向相关人员家属以及中国政府和人民表示哀悼。联合国专门机构国际民航组织也对东航MU5735航班不幸失事感到悲痛，并向所有受影响的人表示最深切的哀悼。</p></li><li><p>3月22日10时<br>广西梧州市公安局交通警察支队发布交通管制通告：3月21日18时50分开始，在S40苍硕高速7Km+560m处至塘步收费站段进行交通管制，梧州往贵港方向7Km+580m至塘步收费站段车道实行封闭管控，因对向车道封闭，贵港往梧州方向塘步收费站至7Km+580m处改道实施双向通行。</p></li><li><p>3月22日11时30分许<br>在坠机搜救核心区域，救援人员发现了飞机残骸及失联人员的钱包、身份证、银行卡等随身物品，尚未发现失联人员。</p></li><li><p>3月22日12时30分许<br>藤县气象台12时28分发布大风蓝色预警信号：受冷空气南下影响，预计未来24小时内藤县将出现7级以上大风，易造成灾害事故，请注意防范。</p></li><li><p>3月22日14时20分<br>距事故发生已24小时……<br>本文转自:<a href="https://baijiahao.baidu.com/s?id=1727980878549194290&wfr=spider&for=pc&searchword=MU5735">北京在线</a><br>来源：中国新闻社综合自：中新财经、中国新闻网、央视新闻客户端、新华社等</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2021总结</title>
+    <link href="/posts/1153f279.html"/>
+    <url>/posts/1153f279.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="不忘初心"><a href="#不忘初心" class="headerlink" title="不忘初心"></a>不忘初心</h2><p>已经很久没更新博客了，不知道该写点啥，其实本来搭建博客时也没想那么多就是想通过博客结识到一些志同道合的朋友，也为了提高自己的写作能力。分享一些前端经验和日常生活甚至情感文章，做一个能分享知识和发泄情绪的小地方。</p><h2 id="自嘲"><a href="#自嘲" class="headerlink" title="自嘲"></a>自嘲</h2><p>其实我也只是一个普普通通的人，略懂一点前端而已。并不是在外人看来的技术大神，在外行人看来我那些前端笔记简直就是天书很高深的样子，其实吧在内行人看来真的不值得一提。</p><p>我那些文章简直就是垃圾水文，没有一点技术含量所以我一直在学习，一直在努力。想努力成为被那些大牛级人物看得上的人，争取写出好的文章做到评论区能有位大佬评论一句”还不错”。</p><p>从小我也不怎么热爱学习，成绩也很普通，说是妥妥的学渣又比学渣好点，这也导致了我中考失利，考进了一所中职，说出来也不怕被笑话我初中学了三年英语连音标都没学会。</p><h2 id="问题处理与解决"><a href="#问题处理与解决" class="headerlink" title="问题处理与解决"></a>问题处理与解决</h2><p>解决一个问题时，首先把上下文弄清楚。</p><p>对于负责解决问题的人要做到：</p><p>明确问题提出的人是谁</p><p>确定问题描述清楚没有</p><p>及时将解决进度告诉大家</p><p>如果问题解决了，要通过更新Blog或者在相关讨论组讨论的方式，告诉大家问题原因、解决办法、遗留问题。如果问题解决不了，或者提问者说OK了，一定要追问发生了什么，或者是如何解决的。</p><p>整个问题的生命周期都要与大家分享出来，不能不明不白的就关闭一个组件。</p><p>提问者需要及时追踪问题进度。同时，我认为：无论是任何原因，只要一个组牛被长时间搁置，那么这个问题优先级一定不高。</p><h2 id="总结与反馈"><a href="#总结与反馈" class="headerlink" title="总结与反馈"></a>总结与反馈</h2><p>去任何一家公司都会遇到很多新鲜的知识，很多新鲜的内容，所以日常的学习过程中需要及时总结笔记，作为备忘。每个人都不可能纯凭记忆记住很多东西，所以日常的学习中，需要及时总结，也方便未来的梳理。</p><p>所谓的反馈，也就是展示自我，你要清楚的让上级知道你现在在做什么，会什么，有什么能力。也就是说，主动展示自我，主动秀出自己。通过这个，一来证明自己的能力，不是在那边混日子。二来也是一种资源的获取，上级懂的永远比你多，通过这种方式，可以要求到更多的学习资源。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>源仓库</title>
+    <link href="/posts/9ae9e8c0.html"/>
+    <url>/posts/9ae9e8c0.html</url>
+    
+    <content type="html"><![CDATA[<p><strong>源仓库来源微信好友：超投稿，可以自动生成源规则用于支持导入「源」的 APP。</strong></p><h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p>源仓库域名经常和谐，可以通过下方链接找到最新地址。 <a href="https://support.qq.com/products/145120#label=show">https://support.qq.com/products/145120#label=show</a></p><h2 id="支持"><a href="#支持" class="headerlink" title="支持"></a>支持</h2><p>异次元漫画、新海阔、阅读 的规则实时更新生成。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>为什么网站打开慢？</title>
+    <link href="/posts/50135ef9.html"/>
+    <url>/posts/50135ef9.html</url>
+    
+    <content type="html"><![CDATA[<p><strong>在进行站点优化时，很多站长会发现我们的网站有时运行速度很快，有时运行速度很慢，严重影响了用户体验。因此，有必要理解为什么网站变得很慢。如今，可以帮助你了解为什么我们的网站会慢下来。</strong></p><p><img src="https://i04piccdn.sogoucdn.com/71e4070db5223598" alt="请输入图片描述"></p><h2 id="1、网页的大小"><a href="#1、网页的大小" class="headerlink" title="1、网页的大小"></a>1、网页的大小</h2><p>网页加载速度与网页大小直接相关。站点的代码文件越大，载入速度就越慢，网站打开速度就越慢，如果有太多的图片的话，网站就会变得很慢。</p><h2 id="2、网站服务器"><a href="#2、网站服务器" class="headerlink" title="2、网站服务器"></a>2、网站服务器</h2><p>服务器不稳定是影响网站开放速度的直接原因。由于服务器不稳定，网站的运行速度很慢。推荐站点管理员使用过您的服务器。虽然国外的服务器能让申请过程省心，但国外的主机比国内的要慢得多。</p><h2 id="3、网站的流量太大"><a href="#3、网站的流量太大" class="headerlink" title="3、网站的流量太大"></a>3、网站的流量太大</h2><p>一般来说，访问网站服务器是有一些限制的。随着越来越多的用户同时访问网站，网站会出现超载问题，导致网站崩溃。因此，当你在购买网站服务器时，你必须了解宽带的大小，并根据你网站页面的大小和访问量购买服务器空间，以免网站流量过大。</p><h2 id="4、优化网站代码"><a href="#4、优化网站代码" class="headerlink" title="4、优化网站代码"></a>4、优化网站代码</h2><p>大量的JS调用在站点代码中。如果网站中的JS调用过多，网站就会打开得太久，导致网站打开的速度变慢。站点管理员可以利用缓存机制对过于复杂的网站代码进行处理和传输，从而减少服务器数据的处理和传输，提高网站的开放速度。</p><h2 id="5、网速问题"><a href="#5、网速问题" class="headerlink" title="5、网速问题"></a>5、网速问题</h2><p>如果网站访问者上网速度很慢，网站的运行速度就会很慢。例如，如果我们站点的服务器是一台电信，联通的用户就会变慢。这就是网站有可能慢慢打开。从以上几个方面，你可以了解为什么网站开得慢。但愿今天提供的内容对您有帮助。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>国庆游玩二</title>
+    <link href="/posts/1abcd51f.html"/>
+    <url>/posts/1abcd51f.html</url>
+    
+    <content type="html"><![CDATA[<p>啊来到了书本上说的滕王阁啊！看了寻梦滕王阁，不错呀～</p><h1 id="Top1"><a href="#Top1" class="headerlink" title="Top1"></a>Top1</h1><p>南昌一卡通预约的，需要换票，不在售票处换，是在东门牌坊进来的小广场那，有举大喇叭的一卡通工作人员，他们给换。</p><h1 id="Top2"><a href="#Top2" class="headerlink" title="Top2"></a>Top2</h1><p>因为疫情要验健康码有金边打了疫苗的。没打疫苗的会要求扫行程码才能过安检取票或者入场。</p><h1 id="Top3"><a href="#Top3" class="headerlink" title="Top3"></a>Top3</h1><p>表演超赞，气势恢宏，灯光绚丽，创意也好，跟随着各个历史名人的视角来感悟历史，感悟滕王阁。配音好有代入感，灯光布景看的词穷的我只能不停的“喔。喔。哟。。”惊叹连连。<br>特别是听到配音中的《滕王阁序》等各种诗词，让我一下梦回小初中背诵全文的噩梦。</p><h1 id="Top4"><a href="#Top4" class="headerlink" title="Top4"></a>Top4</h1><p>卡通预约票的座位统一安排在最边上，无可厚非吧，但观赏效果肯定不如中间位置，你看我图，都是斜斜的。<br><img src="https://yun.15xd.cn/img//588b33e0701f00e0bf4fe95af240d2b2.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//868bb2a4428e66615397e8e91d97acb9.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//99e792a08d9e4aa73b7d4ded710597e4.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//d13d41178d7c68a0c1205439449a629d.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//5577d1e9b080d05b400d97e3374090d7.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>国庆游玩</title>
+    <link href="/posts/6847a09e.html"/>
+    <url>/posts/6847a09e.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>国庆，祖国妈妈的生日，去体验一下我国军舰的强大。</p></blockquote><h1 id="参观南昌舰历史"><a href="#参观南昌舰历史" class="headerlink" title="参观南昌舰历史"></a>参观南昌舰历史</h1><p>南昌舰为051D型驱逐舰，是我国自行设计建造的第一代导弹驱逐舰。排水量4000吨，1982年11月15日开始服役于南海舰队，2004年调往北海舰队，2016年退役。服役时间长达34年，退役后停泊在南昌八一大桥一侧。<br>中国163南昌号导弹驱逐舰隶属中国海军，为051D型（旅大I级）驱逐舰。 1977年12月28日，“南昌”号在广州造船厂开工制造；1979年12月22日，下水；1982年11月15日，服役于南海舰队；2004年，调往北海舰队；2016年9月8日，退役降旗，正式移交南昌市。</p><p><img src="https://yun.15xd.cn/img//1797f350dbaf34136bc8ef2a8abf7ca9.jpg" alt="请输入图片描述"></p><h1 id="南昌舰"><a href="#南昌舰" class="headerlink" title="南昌舰"></a>南昌舰</h1><p>南昌舰身长80.52米，宽39.762米，吃水2.5米；排水量1350吨，有可调整适应内河或外洋航行的压舱水柜。主机3 381千瓦，最高航速20节；原装备3门119.4毫米主炮(前双联装/后单装)，8门25毫米机炮，深水炸弹施放轨，并有先进的火控仪器与雷达、声纳等<a href="https://yun.15xd.cn/img//e446fa02050f111ac4fd0f79f6e5a681.jpg">3</a> 。装备120毫米主炮3门，25毫米高炮9门，配有火炮电动指挥仪、声纳、雷达等；航速20节，排水量1350吨。<br><img src="https://yun.15xd.cn/img//296748b89ade9dcdbf2e1cf5a4dfac3e.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//e446fa02050f111ac4fd0f79f6e5a681.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//eb7ca1b46ae94389322ba053b144805a.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//bff2219cab38f1043cbd36a084288f09.jpg" alt="请输入图片描述"><br><img src="https://yun.15xd.cn/img//ed215fadb319dc5183c8e995235a2fec.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>看光猫不顺眼？试试给光猫改桥接模式吧！</title>
+    <link href="/posts/feb3be8f.html"/>
+    <url>/posts/feb3be8f.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="为什么要改桥接"><a href="#为什么要改桥接" class="headerlink" title="为什么要改桥接"></a>为什么要改桥接</h2><p>此外，别看这光猫两根天线看着挺牛，实际只有2.4G wifi，最高连接速度只有72Mbps，后面的接口也是只有一个千兆口，剩下的都是百兆口。从这些外围配置来看就感觉这光猫配置好不到哪里去，还是改成桥接模式放心一些。</p><h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><p>工作负荷变小，路由器拨号带机量比光猫大，网络延迟小，可以实现更多功能。网速稳定，工作效率提高，而且负荷小了，省略了网线的安装，不需要铺设网线，进行无线连接  有了自己的路由器，WiFi信号就更强了。</p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h2><p>获取光猫的管理员账号密码：</p><p>目前部分新光猫的管理员密码已经是联网不断更换的了，这种光猫的管理员账号密码一般只能向宽带师傅询问了。但是很多旧的光猫账号密码是固定不变且已经被人分享到网络上了,百度搜索自己的光猫型号基本上就能找到。</p><p>我使用的是吉比特GM220-S型号的光猫，这款光猫的管理员账号与密码就是固定的，很容易就能在网上找到。账号密码如下（注意大小写）:<br><strong>账号：CMCCAdmin</strong><br><strong>密码：aDm8H%MdA</strong></p><h2 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h2><p>进入光猫后台</p><p>一般光猫的后台都是192.168.1.1，会在光猫背面的贴纸上写着。输入帐号和密码。<br><strong>需要注意的是，在光猫拨号的模式下，可以通过路由器连接到光猫后台；但是一旦改成光猫桥接、路由器拨号上网，路由器就无法访问光猫后台了，只能通过连接光猫wifi或者网线直连光猫才能进入光猫后台。</strong></p><p>在顶栏第二项“网络”，顶栏下面一栏“宽带设置”，之后左侧边栏”internet连接”里，我们可以看到光猫的连接情况，在“连接名称”那个下拉栏里会有两个或者三个选项，不同的光猫可能名称不一样，反正带INTERNET的应该就是拨号的?。如下图所示</p><h2 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h2><p>获取宽带PPPOE拨号账号密码</p><p>宽带上网，不管是光纤还是其他什么的，最终都是要进行PPPOE拨号才能上网的?，只不过最开始大家都是只有一台电脑，每次开机时使用电脑进行宽带拨号上网?；后来路由器开始普及，人们又开始使用路由器拨号，这样手机电脑等连接到路由器的设备就可以直接上网了?。<br>我用的是移动宽带，获取宽带密码可以使用对应地区的营业厅APP，进行重置密码。</p><p>知道密码后网线连接光猫网口另一端连接路由器，打开路由器并连接路由器WiFi，进入路由器后台（路由器后面一般都有），</p><h2 id="步骤四"><a href="#步骤四" class="headerlink" title="步骤四"></a>步骤四</h2><p>路由器设置PPPOE拨号模式<br>这个挺简单的，这里我就以我目前使用的路由器为例给大家简单讲讲。</p><p>如果宽带账号没错，光猫设置没错，没有其他稀奇古怪的毛病的话，直接拨号就可以拨号成功，之后就可以直接上网了?。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>七夕对别人来说是七夕，对我？周六罢了</title>
+    <link href="/posts/cbf0a1d6.html"/>
+    <url>/posts/cbf0a1d6.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>单身挺好，不动心就不破产，有对象太破费了，请不要叫我单身狗，我的代号是孤号。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/2af60606d280f16eec77df21d0a7575d.jpg" alt="请输入图片描述"><br><strong>不要问我为什么不想谈恋爱，你为什么不考清华北大，是因为不想吗？</strong></p><hr><ul><li>七夕你们缺灯泡吗？坐着吃饭不说话超可爱的那种，特别是去高档餐厅的联系下我，我还可以帮拍照，我还很会P图</li></ul><hr><ul><li>有需要电灯泡的吗，吃不吃饭不重要 ，主要是想近距离看看爱情长什么样</li></ul><hr><ul><li>七夕到了，你们尽管秀恩爱，我都已经截屏作证，给你的下一任看</li></ul><hr><ul><li>七夕怎么过？躺着过，趴着过，站着过，蹲着过，一笑而过，擦肩而过，面壁思过，匆匆而过</li></ul><hr><ul><li>朋友问我七夕要怎么过，我淡淡的说了俩字：“略过”</li></ul><hr><ul><li>对方拒绝了你的狗粮，并踢翻了你的狗盆</li></ul><hr><ul><li>别跟我说七夕快乐了，也别问我去哪，我就在家玩连连看，消灭一对是一对</li></ul><hr><ul><li>世界上最遥远的距离，是你陪恋人过七夕，我却一个人在家喝七喜</li></ul><hr><ul><li>因疫情天庭封城，牛郎没做核酸检测，喜鹊太多核酸做不过来，所以七夕取消了</li></ul><p><strong>最后送上表情包</strong></p><p><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/e4ef862742919a951102732e7d629af7.jpg" alt="请输入图片描述"><br><img src="http://bt.alm5.cn/Upload/4efd3ad9d7e2c0867566fbcc811bd91e.jpg" alt="请输入图片描述"><br><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/5f9c58c241c6c11b52ee71fec520cdca.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>简单概括一下我的实习经历</title>
+    <link href="/posts/ceede346.html"/>
+    <url>/posts/ceede346.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做为一个稚气未脱的少年，终将进入这个社会。从此结束了被学校教师看管的生涯，结束了做父母乖宝贝的日子，也结束了从父母兄长那里拿钱的幸福时光。</p><h2 id="过程与感想"><a href="#过程与感想" class="headerlink" title="过程与感想"></a>过程与感想</h2><p>在应对第一个老板第一批同事第一份工作的时候，我是那样的慷慨激昂，我认为自我无所不能，我幻想很快就能够打造一片属于自我的天地，我对未来充满了信心。并且期望从别人艳羡的目光中找到一点点骄傲的资本。可是渐渐的我才明白，其实现实和自我的梦想有着天壤之别。我发现了老板是多么的阴险狠毒同事是多么的势利小气工作是多么的枯燥无趣，我也发现了房租水电气费把人愁死了。发薪的日子总好像遥不可及，商店里的东西仿佛只是为别人摆设，我还发现了仅有周末跑到外面玩才感觉释然，仅有和老同学一齐聊天玩耍才真正开心，仅有在步行街上看美女才不无聊。渐渐的我也学会了生活，手机玩具游戏吧都是我打发无聊时间的场所。可是我还是泡不到妞，以前自以为是的那些感情理论泡马子技巧在金钱时代都是狗屁，都出奇的苍白无力。于是我感叹世界变得太快，快得让我这穷小子根本就无所适从。</p><h2 id="who？我是谁？"><a href="#who？我是谁？" class="headerlink" title="who？我是谁？"></a>who？我是谁？</h2><p>不知从什么时候开始，我为自我的遭遇感到愤愤不平了，我越来越看不惯老板狰狞的面目，越来越无法忍受同事的卑鄙龌龊，越来越不堪就这样生活下去。于是我在感叹运气不好的同时迫切地想改变自我的命运，我们左顾右盼，寻找机会，却始终看不到出路。最终有一天，我像火山爆发一样，一冲动之下把老板炒了。收拾东西昂然地走出办公室的那一刻我们有英雄离去那种豪迈与无悔，只从同事愕然与嘲讽夹杂的眼神中隐看到一丝无奈，却不明白等待自我的，将是无尽的痛苦与折磨。</p><h2 id="享受与生活"><a href="#享受与生活" class="headerlink" title="享受与生活"></a>享受与生活</h2><p>回到家中，渐渐的我开始享受生活，在家待着渐渐的感觉自己一无是处，感觉自己就是一个废人，就是一头每天吃了睡睡了吃的小笨猪。我决定找一份工作，我以为工作应该很容易找，在不济我去当保安，收银员，服务员。于是我像跑场子一样从这家公司跑到那家公司，一次接一次地应聘，可是根本就无法找到适合的工作。时间一天一天过去，工作依然遥远得不知猴年马月，钱包越来越瘪了，开学日子也越来越近了，我心如火焚，有着世界末日即将来临的惶恐。我也开始有点后悔自我太轻率就辞职了，</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>步入社会才明白，钱用的是那么快，用钱的地方是那么多。</li></ul><hr><ul><li>步入社会才明白，有很多东西是不属于你的，你使劲强求会遭天遣的。</li></ul><hr><ul><li>步入社会才明白，生活是有很多不公平的，你必须要正视，相信实力和群众的眼睛。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>个人网站，意义何在？</title>
+    <link href="/posts/ded0e372.html"/>
+    <url>/posts/ded0e372.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>从搭建到现在也快一年之久，但文章却只有寥寥几十篇，日IP也只有那屈指可数的几个。</strong></p></blockquote><p>   <strong>我一直在思考，在这个浮躁的时代，累死累活的搭建和维护一个个网站的意义到底是什么？费神又费力，为了钱吗？还是为了博得认可？</strong></p><hr><hr><p><strong>我周围的朋友有时也会质问我：“额，你做的这个..有什么用，能赚钱吗？”</strong></p><p>面对这个问题我竟吱吱呜呜答不上来，因为不仅赚不了钱反而倒贴钱。只能说一堆假大空的理想，哦不是 幻想敷衍了事，并以此来博得他人的所谓的”认可”。可笑吗？挺可笑的，有时候我自己都不知道直自己为什么要这样干，直接找一个日记软件写上去不就完了，市里上这么多日记APP，哪一个不比我这个优秀，哪一个不是0成本，我为什么要费神又费力的搞这个东西？</p><hr><p><strong>所以，在这个暑假里我觉得也许有必要真正的静下来好好思考一下，我的博客的意义到底是什么，它的归宿又是何方…..</strong><br>##源由<br>有句古话说的好“好记性不如烂笔头”<br>再好记忆总有一天会忘记，写这个为了让我明白自己，也是为了让我更认识从前的自己，也想有一个自己的东西。<br>（市面上这么多日记APP，我为什么不用？<strong>因为那不是自己的！</strong>）</p><p>##意义<br>**1.**记录:记录生活，记录自己的心灵轨迹。寄托自己的情丝</p><p>**2.**怀念:等一些年后，看到以前的日记，是对青春的怀念。</p><p>**3.**看清自己:记录自己的习惯与思想，更好的发现自己的长短处，为成为更好的自己。让自己仍然能够找回原来的那个我，我仍然记得自己的价值观，我仍然知道我是谁，“不忘初心，方得始终”<br>##去向<br>也许真正的意义就是自己喜欢就好。<br><strong>做一个平凡的人，无忧无虑</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Github文件在线加速下载</title>
+    <link href="/posts/736217d2.html"/>
+    <url>/posts/736217d2.html</url>
+    
+    <content type="html"><![CDATA[<p><strong>众所周知，<em>GitHub</em>是一个巨大的开源宝库，以及程序员和编程爱好者的聚集地，诸多优秀的开源项目全部都是位于<em>GitHub</em>上。但是每当我们看到优秀的开源项目，准备去下（bai）载（piao）时，会发现速度异常之慢！就我个人而言，在我家里200M电信宽带的环境下，就没发现速度大于过20KB/S的时候，这简直太难受了。今天分享一批提供在线加速下载的网站！</strong></p><hr><ol><li><a href="http://toolwa.com/github">http://toolwa.com/github</a></li><li><a href="https://d.serctl.com/">https://d.serctl.com/</a></li><li><a href="https://gh.api.99988866.xyz/">https://gh.api.99988866.xyz/</a></li><li><a href="https://g.ioiox.com/">https://g.ioiox.com/</a></li><li><a href="http://gitd.cc/">http://gitd.cc/</a></li><li><a href="https://gh.sky-and-poem.fun/">https://gh.sky-and-poem.fun/</a></li><li><a href="https://github.zhlh6.cn/">https://github.zhlh6.cn/</a></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>网站&amp;知识</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>做个普普通通的人</title>
+    <link href="/posts/4e66001b.html"/>
+    <url>/posts/4e66001b.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>普通一个平平淡淡的词。普通但不平庸。</strong></p></blockquote><p>　　<strong>做一个普通人，与世无争，平平淡淡，衣食无忧，在普通之中蕴含着无穷的乐趣。</strong></p><hr><p><strong>不要认为做一个普通人是不思进取的表现，人生在世没有容易的事情，做一个普通人很难。</strong></p><hr><p><strong>如果你想做一个普通人，那么你便要保证自己的生活受自己所控，你无需出名，你只要能做自己想做的事情即可。可是，这天是容易，实则不然，但当今社会竞争激烈，如果没有足够的能力，你凭什么过得比别人好?</strong></p><hr><p><em><strong>所以努力是成功必经的路程，如果你想幸福，那就努力吧！</strong></em><br><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/68402462cb91afbea498238a58ed4ae3.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>实习日记四</title>
+    <link href="/posts/4e2e7327.html"/>
+    <url>/posts/4e2e7327.html</url>
+    
+    <content type="html"><![CDATA[<p>2021年6月4日 天气晴<br>不知不觉就干了26天了，今天组长让我去其他区的位置，我比较关注的是生产线的现代化水平，所有信息，伴随着每一个产品，亲眼看到了现代化生产，要是有机会看看整车的生产线，相信我会更开眼界。其实生产还有设备相关很多都不懂，操作的人并不了解，搞技术的人又不是随时都在，慢慢学吧。，今天在焊线机上穿了一天线，呵呵。晚上在现场加了1小时班，完成产量。    这天感觉站着挺累，脚疼，要归功于鞋底太硬了，要是我的运动鞋，就应会好很多。还有就是很渴，只有休息时间才能喝水、方便，确实挺辛苦。 </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>实习日记三</title>
+    <link href="/posts/2fc1f39.html"/>
+    <url>/posts/2fc1f39.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>2021年5月14日，天气雨</p></blockquote><p>时间总是在不经意间流逝，感觉自己做了不少，但是还有很多也没做。工作虽然很枯燥，挺麻烦的，但总是能学到不少东西！这两天事好多，连喘息的机会都没有，一件事做完接着做另一件事。开始感觉到自己睡眠不足。又到周末了，可以好好休息一下了，把失去的睡眠补回来。</p><hr><p>今天有大风过境，可是我们的工作还得照常进行。<br>什么叫风里来雨里去？今天的我也算是体会到了，被雨淋湿了，又被风吹干了，如此的循环，真说不出是什么样的一种感受。</p><hr><p>今天的生产任务很少，完成任务后，我们利用剩下的时间，把车间里里外外认真的看了了一遍，让我深刻的认识的工作环境的重要性。我们是无尘车间，在一个封闭空间里，如果处理不好，时间久了，容易引发安全隐患。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>实习日记二</title>
+    <link href="/posts/40a08934.html"/>
+    <url>/posts/40a08934.html</url>
+    
+    <content type="html"><![CDATA[<p>2021年5月9日星期日阴<br>今天，在我站了一天的疲惫之下，我总结什么是一个优秀作业员具备的：热爱工作、迅速熟悉工作标准和方法、要有勤奋的精神、要有自信心、要学会做人、要有责任心、要以一颗平常心面对工作中的不公平、要注重团队的合作。首先是“热爱工作”，为什么要热爱工作，因为当你热爱自己的工作，你就会快乐地、更容易地做好你的工作。我们要让就餐的人们获得健康、能量与良好的服务。你就可能将平凡的工作做得不同凡响。为什么要迅速熟悉工作标准和方法，因为为了自己的企业和自己在激烈的竞争中获胜，我们必须能够尽快地投入工作并胜任工作，以提高工作效率。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>实习日记</title>
+    <link href="/posts/bbd81cdd.html"/>
+    <url>/posts/bbd81cdd.html</url>
+    
+    <content type="html"><![CDATA[<p>2021年5月8日星期六晴<br>今天是是实习的第一天有师傅在旁边，有不懂的就问，这使我受益非浅。假如在工作的过程中如果使用几个小技巧，确实可以达到事半功倍的效果。慢慢地生产班长也把一些比较重要的交给我处理。这使我对这个行业认识就更加深了一步。<br>通过这次实习，在生产管理方面我感觉自己有了一定的收获。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>打工人，打工魂，打工都是人上人</title>
+    <link href="/posts/d0edb128.html"/>
+    <url>/posts/d0edb128.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>4月28日，星期三，天气小雨</p></blockquote><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p> 因为工学交替，学校把我们骗到了电子厂，和劳务派遣公司（中介）绑了工资厂</p><h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><p>江西吉安木林森<br>小时工<br>工作比较轻松，主要生产LED灯，操作机台<br>不穿无尘服，男女不限，年龄16-40岁，能接受上夜班<br>女的基本为坐班，男的基本站着上班，管理不严，适当可以坐一会！<br>工作地点吉安市吉安县<br><strong>老师说的</strong></p><h2 id="鸡汤"><a href="#鸡汤" class="headerlink" title="鸡汤"></a>鸡汤</h2><p><strong>你在拼多多到处找人砍价，他在滴滴打车求人助力，我在电子厂拧螺丝拧到凌晨，我们都有光明的未来！早安，打工人！”</strong></p><p><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/9ff35acfb15f5bf21139e9b11c980ded.jpg" alt="请输入图片描述"></p><p><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/f5e776c55f7ffd7e8893d280f1b61215.jpg" alt="请输入图片描述"></p><h2 id="分享一张电子厂招聘关系图。"><a href="#分享一张电子厂招聘关系图。" class="headerlink" title="分享一张电子厂招聘关系图。"></a>分享一张电子厂招聘关系图。</h2><p><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/890460bc9e700b35d71f01bd3487a87e.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>什么时候开始玩起来了游戏</title>
+    <link href="/posts/51df3d90.html"/>
+    <url>/posts/51df3d90.html</url>
+    
+    <content type="html"><![CDATA[<p>每个学生基本上都会玩游戏，有许多有趣的游戏，也有手游，但是我最喜欢的是王者荣耀，身为一个男生玩游戏或许手没有那么灵活也没有那么有技巧。</p><p>我一开始接触到的游戏是<strong>4399</strong>那是我大班开始游戏的旅程，从大班到小学三年级我还一直是每天坐在电脑前面玩着<strong>4399</strong>，但是逐渐长大，对于电子产品有进一步的了解，然后四年级开始接触<strong>炫舞时代</strong>，又过了一年开始接触<strong>王者荣耀</strong>，因为那时候还小家长不给买手机，只能在爸爸妈妈空闲的时候上一下号，现在呢，天天抱着手机在家里赖着，虽然可以天天玩着游戏，天天刷着视频，但是这三四年也落下了不少学业，总结一个道理，玩要有玩的限制时间，把握好时间可以看看书，写写字，出去散散步，，，</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>开学了，开学了！</title>
+    <link href="/posts/56a02cab.html"/>
+    <url>/posts/56a02cab.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>新学期开始了，分别了一个寒假的朋友又相聚在一起，共同谈论着假期里的趣事。曾经互不相让的对手也回归了状态。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/linmu136/tulin/beb95714394b16f6a91bf24490524e8a.jpg" alt="图片"><br><strong>又是新的一学期啦，在新学期里我要做那些事情，进行那些改变呢?</strong></p><p>对于我来说，一个学生最重要的事情是学习。我在这个学期要更好地掌握学习方法，用更好、更省力和更有效的方法进行改变。</p><p><strong>在学习上，我要更多地抄写，在课堂上学会的新知。在学习上，我要更加勤于思考，把学习进度提前进行，以掌握更高的知识和技巧。</strong></p><p>这样，我在现在的学习就变成了别人是在学新颗，而 我就在复习啦。这样，学习的效率和效果就会更好些。</p><p>在新学期里，还有件事情对我来说很重要，它就是我立刻和现在就要不断地改变我的态度。就是说，我不能再马马虎虎地干事情、学习和生活了。我要改变自己。</p><p>我的计划大概就是这样啦，具体的要在每周末和每天晚上进行新的安排。我会自觉地执行我的计划的。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计划＆表</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>名言警句</title>
+    <link href="/posts/be71b1f3.html"/>
+    <url>/posts/be71b1f3.html</url>
+    
+    <content type="html"><![CDATA[<p>一花一世界，一叶一追寻，一曲一场叹，一生为一人。<br>——布莱克</p><p>不乱于心，不困于情，不畏将来，不念过往，如此，安好。<br>——丰子恺</p><p>黑猫白猫，多抓老鼠是好猫。<br>——邓小平</p><p>因为爱过，所以慈悲；因为懂得，所以宽容。<br>——张爱玲有时候，</p><p>不是对方不在乎你，而是你把对方看的太重。<br>——韩寒</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>名言名句</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>免费SSL证书申请</title>
+    <link href="/posts/19f4a886.html"/>
+    <url>/posts/19f4a886.html</url>
+    
+    <content type="html"><![CDATA[<p><img src="http://bt.alm5.cn/img/6" alt="http://bt.alm5.cn/img/6"></p><p>freessl 是一个 SSL 证书申请网站，提供 Let’s Encrypt 与 TrustAsia CA 的免费 SSL 证书，也提供了多年期的收费证书，以及免费 SSL 证书在线工具集。<br>（TrustAsia CA 目前国内的云平台大都可以免费申请，如：DNSPOD、宝塔。）</p><h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://freessl.cn/">https://freessl.cn</a></p><h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><p><a href="https://blog.freessl.cn/how-to-use-freessl-issue-free-certificates/">如何使用 FreeSSL 申请免费证书?</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网站&amp;知识</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ssl</tag>
+      
+      <tag>免费ssl</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2020总结</title>
+    <link href="/posts/b724f9cd.html"/>
+    <url>/posts/b724f9cd.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>要进入社会了，不再是学生的身份了。在今年结束的时候为自己这一年的生活做一个总结吧，同时也做好明年的计划。</p></blockquote><p>##一、学习总结</p><p>这一年的时间自己每一节课都是有在走神上课的，虽然一年的时间没有缺课过一次，自己的成绩还是很不错（随便考都可以得高分），但是这一年自己在课堂上也是没学什么东西。我觉得想要有一个好的工作，首先是要学好课堂上的一些知识的，若是知识没有学好的话就好像地基没有打稳固，虽然房子一样也是能够建好的，但是风一吹很容易的就会倒了，所以在学校的时候就应该要努力的去学好老师讲的一些知识。</p><p>##二、工作总结</p><p>这一年的暑假因为疫情期间，找不到工作，虽然都在家，但还是有很多的收获的。有一点后悔自己当初没有更加的努力在多学一点知识的，在要用到这些知识的时候才知道自己还是学的太少了。也应该要利用好上学的时间去学习很多的技能的，现在确实是有一些后悔的。</p><h2 id="三、今年的计划"><a href="#三、今年的计划" class="headerlink" title="三、今年的计划"></a>三、今年的计划</h2><p>这个暑假准备去找一个实习的工作，让自己能够有更多的工作经验，这样在毕业之后找工作的时候会顺利一些。自己也能够在工作的过程中去提高自己的各方面的能力，不管之后做什么样的工作都是会顺利一些的。在工作的同时也要做好毕业设计，争取在答辩的时候取得一个好的成绩。虽然这样的压力会比较的大，但是我相信我是一定能够有很多的收获的。</p><p>明年自己也是会继续的加油努力的，把握好自己在上学里的最后一年半（实际就一年）的时间，让自己具有竞争的优势，学到更多的工作技能和知识。<br><img src="http://bt.alm5.cn/img/3" alt="http://bt.alm5.cn/img/3"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+      <tag>总结</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何快速获得进入某一个行业</title>
+    <link href="/posts/a3c33dd.html"/>
+    <url>/posts/a3c33dd.html</url>
+    
+    <content type="html"><![CDATA[<p> 那就是模仿!</p><p>1.我当年写博客的时候，自身条件并不好，写不出高大上的文章。为了锻炼自己的写作能力，我会抄书，抄书的目的是学习作者的写作思路，然后模仿作者的思路去写自己的文章。没成想，抄书我还抄出了很多心得。写作水平快速提高</p><p>2.最终通过“抄书”这一工作还是快速锻炼了许多同事，让一个不懂互联网小白迅速获得网感。</p><p>3.虽然前期有点痛苦，但后面会让他少走很多弯路。最笨的方法就是最有效的方法。你学会了吗?</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>自己感觉好的知识</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2月21日</title>
+    <link href="/posts/df5fc96b.html"/>
+    <url>/posts/df5fc96b.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>天气晴 星期天</p></blockquote><p>今天上午我肚子还是很痛，其实在前天晚上肚子就开始痛了，我到今天还是一样的，就不知道什么原因，搞的我没有食欲，可能是受凉了，然而我还有游戏要肝，为了肝游戏，以更加剧我那种痛苦了。然后我就是躺玩着，因为坐着的话也有点累。我就趴在那个床上面用个枕头放在我的头上，这就好多人了</p><hr><p>下午因为肚子好一点了，我决定出去玩一玩，晒晒太阳补补钙，应该会好一点，在外面随便逛了几次，肚子又开始作妖了，搞的我精神状态不好，一直集中不了精神，也就没有什么兴趣继续逛了。</p><p>!!!<br><font color="red">真是糟糕的一天。</font><br>!!!</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2月2日</title>
+    <link href="/posts/4679e2ad.html"/>
+    <url>/posts/4679e2ad.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>2月2日 天气阴 星期二</p></blockquote><h3 id="谁说小孩是最无忧无虑的。我的成长路上，考试就是我的一大烦恼。"><a href="#谁说小孩是最无忧无虑的。我的成长路上，考试就是我的一大烦恼。" class="headerlink" title="谁说小孩是最无忧无虑的。我的成长路上，考试就是我的一大烦恼。"></a>谁说小孩是最无忧无虑的。我的成长路上，考试就是我的一大烦恼。</h3><p>每一次考试，考卷上的一个勾，一个叉。都可以决定我的“命运”。在我的脑海中会想起父母那拿着试卷时的模样：用满意的目光看着用红笔潇潇洒洒写着的100分，然后看完整张试卷，向你点点头，与你勾肩搭背：“走，买衣服去!”或是“走，下馆子去！”这类话。</p><p>!!!<br><font color="red">想象的事情总是美好的，但，现实总是残酷的。</font><br>!!!</p><h3 id="其实我的烦恼不仅仅是这样，其它的时候也有！"><a href="#其实我的烦恼不仅仅是这样，其它的时候也有！" class="headerlink" title="其实我的烦恼不仅仅是这样，其它的时候也有！"></a>其实我的烦恼不仅仅是这样，其它的时候也有！</h3><p>就说我的字吧。尽管我的爸爸妈妈把我送去学毛笔字，但因为我不是太愿意，所以总是偷懒，一点也没有进步。所以考试时，老师会把我的‘孝’和‘考’混合起来。我还有许多错别字，不会的就蒙。</p><hr><p>我在想，如果我的同学、伙伴问起怎么办？我们的友谊会变淡吗？爸爸妈妈问起怎么办？ 他们会嘲笑我吗？如果每天接送我的奶奶问起怎么办？我会忍心告诉她吗？五花八门的问题那一刻全浮在了我的脑海中。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>1月3日</title>
+    <link href="/posts/704a822b.html"/>
+    <url>/posts/704a822b.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>星期天 天气晴</p></blockquote><h2 id="TOP-1"><a href="#TOP-1" class="headerlink" title="TOP 1"></a>TOP 1</h2><blockquote><p>八大山人梅湖景区位于江西省南昌市青云谱区境内，是以被联合国教科文组织评为“中国十大文化艺术名人”、被郑板桥誉为“名满天下”的一代画圣——八大山人为核心，以传统文化为主轴，以梅湖生态美景为纽带的江南都市历史文化生态景区。</p></blockquote><h2 id="TOP2"><a href="#TOP2" class="headerlink" title="TOP2"></a>TOP2</h2><blockquote><p>主要景点包括二馆二居二园二街二场二院、一水一道一廊一阁一楼一台一岛一塔、十林。工程规模之巨、建筑规格之高、建设难度之大勘称青云谱区城市建设史之最。</p></blockquote><h2 id="TOP3"><a href="#TOP3" class="headerlink" title="TOP3"></a>TOP3</h2><blockquote><p>水乡风情区——发挥梅湖生态美景价值，着重打造江南水乡的“桥”文化，将大小不同、形态各异的30余座古桥浓缩到景区的园林造景之中，同时在水系分隔的绿岛上营造以桃花、垂柳、樱花、杜鹃等植物为主的生态景观，达到了四季皆景的意境效果。</p></blockquote><h3 id="另外景区是开放式的，目前还没有被完全开发，但是已经初具规模了。走到里面感觉处处都是景点。"><a href="#另外景区是开放式的，目前还没有被完全开发，但是已经初具规模了。走到里面感觉处处都是景点。" class="headerlink" title="另外景区是开放式的，目前还没有被完全开发，但是已经初具规模了。走到里面感觉处处都是景点。"></a>另外景区是开放式的，目前还没有被完全开发，但是已经初具规模了。走到里面感觉处处都是景点。</h3><h2 id="美图"><a href="#美图" class="headerlink" title="美图"></a>美图</h2><p><a href="https://imgchr.com/i/s9XwJU"><img src="https://s3.ax1x.com/2021/01/03/s9XwJU.md.jpg" alt="s9XwJU.md.jpg"></a><br><a href="https://imgchr.com/i/s9jSyj"><img src="https://s3.ax1x.com/2021/01/03/s9jSyj.md.jpg" alt="s9jSyj.md.jpg"></a><br><a href="https://imgchr.com/i/s9j1k6"><img src="https://s3.ax1x.com/2021/01/03/s9j1k6.md.jpg" alt="s9j1k6.md.jpg"></a><br><a href="https://imgchr.com/i/s9jgXj"><img src="https://s3.ax1x.com/2021/01/03/s9jgXj.md.jpg" alt="s9jgXj.md.jpg"></a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>12月30日</title>
+    <link href="/posts/d8311260.html"/>
+    <url>/posts/d8311260.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>星期三 天气阴</p></blockquote><blockquote><p>我们的教学楼扮得绚丽多彩，在正中央的前方一个大舞台搭了起来。我们安安静静地坐在凳子上，耐心地等待着元旦联欢会的开始。</p></blockquote><blockquote><p>终于，幕布拉开了！小演员们大显身手，纷纷表演拿手好戏。其中，我最喜欢的是：舞蹈表演。那一个个优美的音符，一个个清晰的节奏，让我陶醉之中。她们手指一拨、一划，那悠扬的琴声，那琴声似一个调皮的小天使在校园各个角落飞来飞去。</p></blockquote><blockquote><p> 瞧！激情四射的拉丁舞表演开始了。欢乐的歌声，优美的舞姿，整齐的动作和金光闪闪的服装，让我心爽！两旁前后都是人，场后走来了六年级的大姐姐，她们身穿粉红色的蕾丝裙，迈着轻盈的步伐来到了舞台的后方。此时的舞台，真像一个美丽的大花坛；小演员们似一朵朵鲜艳的花朵，在绽放，在飞舞，如人间仙境，真美呀！</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>12月15日</title>
+    <link href="/posts/952fb132.html"/>
+    <url>/posts/952fb132.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="天气小雪-星期一"><a href="#天气小雪-星期一" class="headerlink" title="天气小雪 星期一"></a>天气小雪 星期一</h2><p>   今年冬天下雪比较晚，可是一下雪，就下得“一鸣惊人”。 </p><p>天气预报说今晚有雪，我大喜过望：终于可以饱览雪景了!我幻想着下雪天美丽的景色。果然不出所料，昨天晚上就开始下雪了，早晨也下了雪! </p><p>下雪了!下雪了!虽然下的很小。但是这是冬天的第一场雪，等雪下得厚了，淘气的孩子们就会跑出来做游戏。堆雪人，打雪仗。孩子们你一个“雪弹”，我一个“雪弹”，真是不亦乐乎!</p><p>有人还把雪比作盐，可是雪花们并不在意，它们欢快地欢快地飞腾着，直到悄无声息地化成水……</p><p>　 有雪的世界是欢快的，是美丽的，也是祥和的。</p><p>　　<strong>下雪了，下雪了……</strong><br>###雪中的世界令我眼前一亮。比平时的花花绿绿新鲜多了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>12月10日</title>
+    <link href="/posts/a2f14100.html"/>
+    <url>/posts/a2f14100.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>天气阴 星期四</p><blockquote><p>今天发生了一个奇妙的事情，一位朋友写的小日记</p></blockquote></blockquote><h2 id="起因"><a href="#起因" class="headerlink" title="** 起因 **"></a>** 起因 **</h2><p>因为上课发信息给我，从而被老师看到写的忏悔日记 。深刻的谴责了自己的行为。</p><h3 id="下面是我为他搞的日记"><a href="#下面是我为他搞的日记" class="headerlink" title="下面是我为他搞的日记"></a>下面是我为他搞的日记</h3><blockquote><p>上课思想不积极，上课居然不带书，然后还在教室里当着老师的面玩手机，应该通报批评，让全校师生来看看，看看他的良心还有没有，里面是什么颜色的。不要脸，上课书都不带，对学习不负责任，对学校不够重视，希望这位同学下次要带书和他的脑子来上课二流子，整天就只会说阿巴阿巴阿巴阿巴</p></blockquote><h2 id="下面是他看了我的日记他自己写的"><a href="#下面是他看了我的日记他自己写的" class="headerlink" title="下面是他看了我的日记他自己写的"></a>下面是他看了我的日记他自己写的</h2><p><a href="https://imgchr.com/i/rAnkNQ"><img src="https://s3.ax1x.com/2020/12/11/rAnkNQ.jpg" alt="rAnkNQ.jpg"></a></p><p><a href="https://imgchr.com/i/rAnmj0"><img src="https://s3.ax1x.com/2020/12/11/rAnmj0.jpg" alt="rAnmj0.jpg"></a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>12月2日</title>
+    <link href="/posts/fc18fdfb.html"/>
+    <url>/posts/fc18fdfb.html</url>
+    
+    <content type="html"><![CDATA[<p><strong>12月3日 星期三 天气阴</strong></p><ul><li>因为学校运动会，所以我们放假了，放假期间来到了天香园，虽然收费，但是我们有学子卡，可以免费进去</li></ul><ul><li>天香园地处<strong>江西省南昌市青山湖南大道</strong>，原名西湖园艺场。始建于<strong>1976</strong>年，面积<strong>112</strong>亩，现有大小盆景<strong>3</strong>万余盆，培养花卉、亩木<strong>2.6</strong>万余株，是江西省规模最大的赣派盆景基地和花卉基地。园内还建有茶艺馆、云泉书画室等仿古建筑。<br>从<strong>1998</strong>年开始，欧盟派专家连续几年在天香园进行监测。<strong>2000</strong>年，天香园被欧盟组织确定为“城市候鸟生态环境研究基地”。</li></ul><ul><li>从大门进去，发现园区是真的大，也有很多可以拍照的地方，水池里的红鲤鱼，水缸里的甲鱼，感觉跟平时见到的相比都是巨型。。还有小鹿和驴，都是放养的，满地跑，整体可玩性很高！</li></ul><blockquote><p><strong>游玩时的图片</strong><br><a href="https://imgchr.com/i/DTDBdI"><img src="https://s3.ax1x.com/2020/12/03/DTDBdI.md.jpg" alt="DTDBdI.md.jpg"></a><br><a href="https://imgchr.com/i/DTDLy4"><img src="https://s3.ax1x.com/2020/12/03/DTDLy4.md.jpg" alt="DTDLy4.md.jpg"></a><br><a href="https://imgchr.com/i/DTDxT1"><img src="https://s3.ax1x.com/2020/12/03/DTDxT1.md.jpg" alt="DTDxT1.md.jpg"></a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>11月20日</title>
+    <link href="/posts/dcdc0715.html"/>
+    <url>/posts/dcdc0715.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>天气晴 星期四</p></blockquote><blockquote><p>** 今天已经开学了，我一直在想什么时候能运动会呢，运动会的话我们又可以舒舒服服的过上一个好日子了，然后今天是星期四，也就是今天，本来是这个星期的但是因为人口普查，既然今天是星期四的话，那1天之后也就是周末了，所以我也非常期待到周末之后的快乐，然后远光再放扩大一点。再想想下个星期之后可能就是运动会，持续时间可能是6天吧，然后这6天肯定也非常好玩，然后再想一想，再过2个月后这个学期就结束了，也迎来了一年一度的寒假，又要过年了，你说开不开心，时间真是太快了，虽然想着快点过去就放假，但是这种充满压力的学习生活也是有意义的，如果每天都放假，那时间会不会过得很快呢？** </p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>11月7日(瑶湖郊野森林公园)</title>
+    <link href="/posts/6df6e7d6.html"/>
+    <url>/posts/6df6e7d6.html</url>
+    
+    <content type="html"><![CDATA[<p>天气晴 星期六</p><blockquote><p>好久没出来更新了</p></blockquote><blockquote><p>瑶湖郊野森林公园位于江西省南昌市高新区麻丘镇与瑶湖大桥靠近，可乘坐226等路线直达，也可乘坐地铁一号线到瑶湖西站下（具体的位置路线可查询地图导航）</p></blockquote><blockquote><p>因其蓝天、沙滩、碧水、湿地、小桥假山、红花绿草美景被市民们称为南昌的“马尔代夫”和马尔代夫相同，这里的标志性建筑是茅草亭，无论你是站在沙滩远处拍草亭，还是在木桥上近距离拍照，蓝天、碧水的结合都给人一种已然身在马尔代夫度假的错觉。</p></blockquote><blockquote><p>公园的门票是免费的直接进去，有很多个出入口，园区内面积较大，从大门进去有一个地图牌，园内也有很多路线指引牌最常规的同时也是最美的路线是沿着型的湖边走，柔软的沙滩……异域风情的茅草亭……还有烧烤区（烧烤架可以租，但是食材和调料需要自己带）and自行车和帐篷租赁点都在这里。（具体的租售价不是很清楚）</p></blockquote><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><blockquote><p>瑶湖郊野森林公园跟瑶湖森林公园是两个地方，两个地方距离不长，隔了一条瑶湖大桥，从地铁一号线出来右边就是瑶湖森林公园。一直往前走过桥就是瑶湖郊野森林公园。实在是不知道怎么走的可以问问路人</p></blockquote><blockquote><p>出了地铁就有很多三马车拉客，2块钱一个，〔个人建议〕如果不赶时间的话可以选择步行，总不能来了一趟连瑶湖什么样都不知道吧吹着微风，领略瑶湖大桥的美景，也是一个不错的享受</p></blockquote><h1 id="美图"><a href="#美图" class="headerlink" title="美图"></a>美图</h1><p><img src="https://s1.ax1x.com/2020/11/07/B5ssE9.jpg" alt="请输入图片描述"><br><img src="https://s1.ax1x.com/2020/11/07/B5oce1.jpg" alt="请输入图片描述"><br><img src="https://s1.ax1x.com/2020/11/07/B5obwt.jpg" alt="请输入图片描述"><br><img src="https://s1.ax1x.com/2020/11/07/B5TPwq.jpg" alt="请输入图片描述"><br><img src="https://s1.ax1x.com/2020/11/07/B5Tel4.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一个真实的事</title>
+    <link href="/posts/3fa4aeea.html"/>
+    <url>/posts/3fa4aeea.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p><em><strong>前言：这是一件真实事件，发生在10月25日下午。这虽然是件微不足道的小事，但对我的感触是非常深的。</strong></em><br><strong>身为一位篮球爱好者，对我来说篮球就是生活的一部分，每个星期六和星期天都是最令人兴奋和高兴的，能和老同学聚在一起打几场球，互相竞争和进步，场下嘻嘻哈哈，场上也嘻嘻哈哈，在一起吹吹牛逼，这种感觉只有打篮球的男孩子才会懂吧。</strong><br><strong>今天又是星期天，天气还格外晴朗，不用说今天又是和兄弟们血搏的一天，我们“NBA总部”的扣扣群里早已响起进攻的号角。约好时间下午2点半，还是像往常一样我的好队友“顶级中锋”天天，来和我会合一同前往“长春村甲骨文室外水泥球馆”。</strong><br><strong>电话铃声响起，天天已经到达我家楼下，我下楼与他会合。因为他骑着共享电单车，但附近没有停放点，所以他只能先去地铁口把车停了，再一起去“长春村甲骨文室外水泥球馆”。</strong><br><strong>我站在巷子旁等着，这太阳晒在身上格外惬意，看着行色匆匆的行人。我习惯性的拿出手机刷着NBA的精彩过人视频，真是一个好球，正看着津津有味。我抬头看了眼天天停车的方向看看他回来了没有，却看见一位衣衫褴褛的老奶奶向我这边走来，嘴角略微动着像在说着什么。起初我并不在意，继续看着手机。</strong><br><strong>马上我就听到一个无力且苍老的声音，原来那位老奶奶是在叫我，不认真听根本听不清她在说什么，仔细一看，稀疏的头发已经全白，身上衣服的也非常破旧，苍老的脸庞布满了皱纹，一双凹陷且慈祥的眼睛，挺着瘦弱的身躯颤颤巍巍向我走来。</strong><br><strong>原来这位老奶奶是想借我的手机打个电话，这时天天也停完车赶了过来，和天天说明缘由之后也在一旁看着。我果断同意了老奶奶的要求之后，她从上衣口袋里缓缓拿出一本泛黄且残缺的字典，她的手布满了青筋，但她却非常熟练的翻到抄有号码的那一页，一共有三个号码。每个号码旁都有备注。老人说打给华仔也就是第一个号码。天天问：这都是你儿子的号码吧。老人情绪立马变得激动说：是啊，我三个儿子，都不闻不问，把我一个人丢在这边。说完便指着后面那座年久失修的红色砖瓦房。电话通了，老人接过电话，电话那头是一个三四十岁的男人，用着流利的南昌话。老人儿子：喂！ 老人哀求着：华仔啊，什么时候来接我啊，就把我一个人丢在这里啊。 老人儿子：我这里还有好多事等我忙完再说。老人哀求着：那我去你那里，到你那里住。老人儿子：到我这里足犀利哦，不要仔打电话了。说完便挂断了电话。天天听完气愤道：这儿子白养的，白眼狼一个，还有这样的的人，自己妈都不养。老人无奈的说：是啊，白养的。说完把手机递给了我，转身离去。望着她的背影，我既气愤又无奈。想帮她，但又感觉自己什么也做不了。</strong><br>##***到了球场后输了一下午~~~ ***</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>10月17日</title>
+    <link href="/posts/11d0513f.html"/>
+    <url>/posts/11d0513f.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>自从昨天从学校回来之后，就感觉自己再一次变懒了很多，就是那种不太想学习了的感受，本来我们学生回学校一次，老师就想让我们感受一下学业凝重的气氛，想让我们紧张起来，但是我们虽然意识到自己还有一年就要中考了，就是人生中第一个决定命运的时刻，可是我们还是没有办法去让自己迅速的进入那种紧张的状态，简单点来说，也就是我们即使从八年级升到了九年级，可是我们照样还是八年级时候的那种状态，没有半点紧张，也可能只有我们班是这种状态，其他的不敢保证，就真的这种状态跟老师所说的还有点差别呢。</strong></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>10月12日</title>
+    <link href="/posts/260ea10d.html"/>
+    <url>/posts/260ea10d.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>** 在学校的每一天，我无时不刻都在想念这个网站，并反复默念着它的名字，但我明白我有好长一段时间不能接触它。国庆前，我在我的好朋友那接触到了原神这个游戏。由于玩这个游戏的关系，我不能常驻这个网站，学校里又不给带电子设备，在学校一待就是五天半，星期五晚上回家没精力写，作业又多，是在没时间写。”对吧，所以说啊 **</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>最后一天了</title>
+    <link href="/posts/caabb353.html"/>
+    <url>/posts/caabb353.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>  <strong>今天是星期三，我们都知道国庆已经将要迎来了，然后我们这里好像放8天。然后我今天早上起来还是烦，结果我又转了一下，今天不是星期三吗？还有一天我们就可以放国庆假了。一共8天左右，我想想都快乐啊，到时候我天天睡懒觉，也就是像放假一样，可以放假都是好事儿，我一直也非常激动，我还想着我今天晚上该怎么欢乐呢，是玩游戏好呢？还是看电视好呢？还是写游戏呢？我放学之后我得先去玩一玩，浪一浪。</strong></p></blockquote><h3 id="说的幻想都是空想，还有几个小时就变成现实了。"><a href="#说的幻想都是空想，还有几个小时就变成现实了。" class="headerlink" title="说的幻想都是空想，还有几个小时就变成现实了。"></a>说的幻想都是空想，还有几个小时就变成现实了。</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>新型冠状病毒事件有感</title>
+    <link href="/posts/5f95820f.html"/>
+    <url>/posts/5f95820f.html</url>
+    
+    <content type="html"><![CDATA[<p> 现今，举国上下，小到乡村寨到一线城市无不为新型冠状病毒抗争着。甚至是中国独有的新春佳节都是低调庆祝，完全彰显不出节日的氛围。</p><p>  身为祖国的孩子、一名普普通通的岁生，能力微薄，不能为祖国贡献出力量来。一波波人被确诊，提心吊胆的是他的家人和关心他们的社会人士。</p><p>  新春佳节、阖家团圆的日子，却让本就不长相见的骨肉至亲、相隔万里，一个守在冷冰冰的病房、一个等在无人问候的灯火旁。这是天灾吗？呵！这又不是古代！这是国人咎由自取的结果，</p><p> 在武汉一间名叫华南工厂里，无数的野生动物肝脏被曝光在烈日下，黑漆漆的墙上挂满了他们的皮毛，旧的还能看出他们昔日玩耍的活泼模样。可惜啊！可恨啊！甚至还有些国家保护动物！对！就是那些被记录在中国宪法上的动物！他们在铁笼里挣扎，奋死反抗！连他们自己都知道做错了什么？难道是他们不该留在这世界上？</p><p>这世界上哪儿有什么白衣天使，不过是一群孩子学者前辈的模样在死神手里抢人罢了！更让我悲痛可恨的是，那些没心没肝的商家与犯罪人一样！有人在路边捡走别人扔下的口罩回收以廉价卖给其他人！呵！你这是嫌疫病的人死的不够多，你多泼给中国一盆水？还好被及时发现，及时制止。还有的药店超市疯狂涨价，以疫病赚老百姓的黑心钱，你倒是拿到钱了，只是可怜我们老百姓掏出腰包换取物件！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>新闻＆大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>日记((国庆节快乐，中秋节快乐！)</title>
+    <link href="/posts/a2c38dea.html"/>
+    <url>/posts/a2c38dea.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>有一个好朋友他说放学让我等一下他，他要和我一起回去，一分钟不到。他就来了，还告诉我国庆节放假的事情，我好奇的问他什么时候开始，放几天，不一会我就看到了微信来信息了，他对我笑了笑，用手指了指我的手机。我打开手机看了看，朋友发了我国庆节的放假通知照片说的是国庆节和中秋节放假，因为要放假嘛，所以就要补课，星期天要补课，好像是10月1号到10月9号都是放假的，但是10月9号的话，在这里祝你们国庆节和中秋节快乐！阖家欢乐！</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HTTP状态码常见状态码及其解析</title>
+    <link href="/posts/5142bb44.html"/>
+    <url>/posts/5142bb44.html</url>
+    
+    <content type="html"><![CDATA[<p>HTTP状态码（HTTP Status Code）<br>一些常见的状态码为：</p><ul><li><p>200 - 服务器成功返回网页</p></li><li><p>404 - 请求的网页不存在</p></li><li><p>503 - 服务不可用<br>所有状态解释：</p></li><li><p>1xx（临时响应）<br>表示临时响应并需要请求者继续执行操作的状态代码。<br>代码 说明</p></li><li><p>100 （继续） 请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。</p></li><li><p>101 （切换协议） 请求者已要求服务器切换协议，服务器已确认并准备切换。</p></li><li><p>2xx （成功）<br>表示成功处理了请求的状态代码。<br>代码 说明</p></li><li><p>200 （成功） 服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。</p></li><li><p>201 （已创建） 请求成功并且服务器创建了新的资源。</p></li><li><p>202 （已接受） 服务器已接受请求，但尚未处理。</p></li><li><p>203 （非授权信息） 服务器已成功处理了请求，但返回的信息可能来自另一来源。</p></li><li><p>204 （无内容） 服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>205 （重置内容） 服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>206 （部分内容） 服务器成功处理了部分 GET 请求。</p></li><li><p>3xx （重定向）<br>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。<br>代码 说明</p></li><li><p>300 （多种选择） 针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p></li><li><p>301 （永久移动） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p></li><li><p>302 （临时移动） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>303 （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p></li><li><p>304 （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</p></li><li><p>305 （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</p></li><li><p>307 （临时重定向） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>4xx（请求错误）<br>这些状态代码表示请求可能出错，妨碍了服务器的处理。<br>代码 说明</p></li><li><p>400 （错误请求） 服务器不理解请求的语法。</p></li><li><p>401 （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</p></li><li><p>403 （禁止） 服务器拒绝请求。</p></li><li><p>404 （未找到） 服务器找不到请求的网页。</p></li><li><p>405 （方法禁用） 禁用请求中指定的方法。</p></li><li><p>406 （不接受） 无法使用请求的内容特性响应请求的网页。</p></li><li><p>407 （需要代理授权） 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p></li><li><p>408 （请求超时） 服务器等候请求时发生超时。</p></li><li><p>409 （冲突） 服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p></li><li><p>410 （已删除） 如果请求的资源已永久删除，服务器就会返回此响应。</p></li><li><p>411 （需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。</p></li><li><p>412 （未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。</p></li><li><p>413 （请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p></li><li><p>414 （请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。</p></li><li><p>415 （不支持的媒体类型） 请求的格式不受请求页面的支持。</p></li><li><p>416 （请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态代码。</p></li><li><p>417 （未满足期望值） 服务器未满足”期望”请求标头字段的要求。</p></li><li><p>5xx（服务器错误）<br>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</p></li></ul><p>代码 说明</p><ul><li>500 （服务器内部错误） 服务器遇到错误，无法完成请求。</li><li>501 （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</li><li>502 （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。</li><li>503 （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</li><li>504 （网关超时） 服务器作为网关或代理，但是没有及时从上游服务器收到请求。</li><li>505 （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>网站&amp;知识</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>9月2日</title>
+    <link href="/posts/1b13fefb.html"/>
+    <url>/posts/1b13fefb.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>引导 明天12:00睡觉，有点晚。咕咕咕</p></blockquote><h2 id="早上"><a href="#早上" class="headerlink" title="早上"></a>早上</h2><ul><li><h3 id="9-00起来"><a href="#9-00起来" class="headerlink" title="9:00起来"></a>9:00起来</h3></li><li><h3 id="以为老爸去工作了"><a href="#以为老爸去工作了" class="headerlink" title="以为老爸去工作了"></a>以为老爸去工作了</h3></li><li><h3 id="早饭忘记吃了"><a href="#早饭忘记吃了" class="headerlink" title="早饭忘记吃了"></a>早饭忘记吃了</h3><h2 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h2></li><li><h3 id="吃中午饭"><a href="#吃中午饭" class="headerlink" title="吃中午饭"></a>吃中午饭</h3></li><li><h3 id="吃完在哪玩，老板以为我还要吃"><a href="#吃完在哪玩，老板以为我还要吃" class="headerlink" title="吃完在哪玩，老板以为我还要吃"></a>吃完在哪玩，老板以为我还要吃</h3></li><li><h3 id="玩手机，看小说"><a href="#玩手机，看小说" class="headerlink" title="玩手机，看小说"></a>玩手机，看小说</h3><h2 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h2></li><li><h3 id="什么都没有干"><a href="#什么都没有干" class="headerlink" title="什么都没有干"></a>什么都没有干</h3></li><li><h3 id="看小说"><a href="#看小说" class="headerlink" title="看小说"></a>看小说</h3></li><li><h3 id="玩电脑"><a href="#玩电脑" class="headerlink" title="玩电脑"></a>玩电脑</h3></li><li><h3 id="听歌"><a href="#听歌" class="headerlink" title="听歌"></a>听歌</h3><h2 id="晚上"><a href="#晚上" class="headerlink" title="晚上"></a>晚上</h2></li><li><h3 id="丢垃圾"><a href="#丢垃圾" class="headerlink" title="丢垃圾"></a>丢垃圾</h3></li><li><h3 id="洗澡"><a href="#洗澡" class="headerlink" title="洗澡"></a>洗澡</h3></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>好几天没有更新了</title>
+    <link href="/posts/796dd7da.html"/>
+    <url>/posts/796dd7da.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>因为拖太久了，然后渐渐的忘了。</p></blockquote><h1 id="分析了一下原因。"><a href="#分析了一下原因。" class="headerlink" title="分析了一下原因。"></a>分析了一下原因。</h1><ol><li><h3 id="没有固定时间。"><a href="#没有固定时间。" class="headerlink" title="没有固定时间。"></a>没有固定时间。</h3></li><li><h3 id="没有坚定自己"><a href="#没有坚定自己" class="headerlink" title="没有坚定自己"></a>没有坚定自己</h3></li><li><h3 id="好的分类都没有用"><a href="#好的分类都没有用" class="headerlink" title="好的分类都没有用"></a>好的分类都没有用</h3></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>网站更名字</title>
+    <link href="/posts/788b6212.html"/>
+    <url>/posts/788b6212.html</url>
+    
+    <content type="html"><![CDATA[<p>由原来的### 林辰的小日记改为### 周次辉的小日记</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>本站＆大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>添加云加速（CDN）</title>
+    <link href="/posts/bc892144.html"/>
+    <url>/posts/bc892144.html</url>
+    
+    <content type="html"><![CDATA[<p>因为网站被攻击<br>1.加了cdn<br>2.可以隐藏源ip<br>3.可以防御扫描<br>4.可以加速网站</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>本站＆大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>世界记忆大师的数字编码</title>
+    <link href="/posts/e3453874.html"/>
+    <url>/posts/e3453874.html</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://img02.sogoucdn.com/app/a/100520146/4954384d9240eefb687c79c86782a5fc" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>自己感觉好的知识</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模板</title>
+    <link href="/posts/f6010553.html"/>
+    <url>/posts/f6010553.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>引导</p></blockquote><h2 id="早上"><a href="#早上" class="headerlink" title="早上"></a>早上</h2><ul><li><h3 id=""><a href="#" class="headerlink" title=""></a></h3></li><li><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3></li><li><h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3></li><li><h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><h2 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h2></li><li><h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3></li><li><h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3></li><li><h3 id="-6"><a href="#-6" class="headerlink" title=""></a></h3></li><li><h3 id="-7"><a href="#-7" class="headerlink" title=""></a></h3><h2 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h2></li><li><h3 id="-8"><a href="#-8" class="headerlink" title=""></a></h3></li><li><h3 id="-9"><a href="#-9" class="headerlink" title=""></a></h3></li><li><h3 id="-10"><a href="#-10" class="headerlink" title=""></a></h3></li><li><h3 id="-11"><a href="#-11" class="headerlink" title=""></a></h3><h2 id="晚上"><a href="#晚上" class="headerlink" title="晚上"></a>晚上</h2></li><li><h3 id="-12"><a href="#-12" class="headerlink" title=""></a></h3></li><li><h3 id="-13"><a href="#-13" class="headerlink" title=""></a></h3></li><li><h3 id="-14"><a href="#-14" class="headerlink" title=""></a></h3></li><li><h3 id="-15"><a href="#-15" class="headerlink" title=""></a></h3></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>计划＆表</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>更换模板</title>
+    <link href="/posts/b7b333e9.html"/>
+    <url>/posts/b7b333e9.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="更换模板原因"><a href="#更换模板原因" class="headerlink" title="更换模板原因"></a>更换模板原因</h2><h3 id="无法下一页"><a href="#无法下一页" class="headerlink" title="无法下一页"></a>无法下一页</h3><h3 id="过于花里胡哨，不简洁"><a href="#过于花里胡哨，不简洁" class="headerlink" title="过于花里胡哨，不简洁"></a>过于花里胡哨，不简洁</h3><h3 id="加载过慢"><a href="#加载过慢" class="headerlink" title="加载过慢"></a>加载过慢</h3><h3 id="不适合日记"><a href="#不适合日记" class="headerlink" title="不适合日记"></a>不适合日记</h3><hr><h1 id="原模板-Cuckoo"><a href="#原模板-Cuckoo" class="headerlink" title="原模板:Cuckoo"></a>原模板:<em><a href="https://github.com/bhaoo/cuckoo">Cuckoo</a></em></h1><p><img src="https://s1.ax1x.com/2020/08/22/ddcoan.jpg" alt="请输入图片描述"><br><img src="https://s1.ax1x.com/2020/08/22/dd6vNt.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>本站＆大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CloudFlare 自定义节点（自选优秀 IP）如何操作？</title>
+    <link href="/posts/cfe9732f.html"/>
+    <url>/posts/cfe9732f.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>作为全球知名的 CDN 供应商，为什么 CloudFlare 会有自选 IP 这个奇怪的命题呢？这是因为 CloudFlare 的分布式节点在国内一直都是迷之路由，这倒不是 CloudFlare 自己本身的问题，而是国内出口路由向来都有让人惊叹的操作。<br>所谓优秀 IP，是指 CloudFlare 众多节点中，总有那么几个是对自己宽带十分友好的，稳定、延迟低、速度快。<br><strong>CloudFlare 官方并不支持自选 IP，后续也未可知是否会封锁自选 IP 的路子，且行且珍惜，勿滥用。</strong></p></blockquote><hr><p>总体步骤概括起来分两步：<strong>分线路管理</strong> –&gt; <strong>CNAME</strong> 接入 –&gt; 配置解析线路 。</p><hr><p>以下操作默认你已经注册了 CloudFlare 账号，有一个状态正常的域名，如果没有则也没必要继续往下看了。<br>##分线路管理</p><ul><li>CloudFlare 官方只提供 NS 接入，即域名解析必须放在 CloudFlare 上面，这是无法实现自选 IP 的。<br>我们需要使用支持分线路的 DNS 解析服务商，比如华为云（推荐）、DNSPod（有限功能）、DNS.LA（有限功能）、帝恩思（有限功能）等，将域名接入到这些服务商进行管理。</li><li>以华为云为例，华为云国内支持按地域、省市、运营商解析，国外支持按洲、国家解析，相对其他几家几乎没有任何功能限制，解析快、线路多、无限免费使用！<h2 id="配置解析线路"><a href="#配置解析线路" class="headerlink" title="配置解析线路"></a>配置解析线路</h2></li></ul><p>现在我们已经把域名地址接入到了 CloudFlare，由于前面在华为云添加解析记录时，选择了只在全球地区生效，因此我们还需要针对国内进行分线路解析。</p><h2 id="自选-IP"><a href="#自选-IP" class="headerlink" title="自选 IP"></a>自选 IP</h2><p>到选择优秀 IP 的时候了，记住一个原则，所谓优秀 IP 不可能一直优秀，可能今天很好，明天就渣渣了，因此需要自己不断的测试。<br>测试方法</p><p>思路：CloudFlare 每个段选取一个 IP，先不断地 PING 这些 IP，选出丢包少、延迟低的 IP，再对这些 IP 进行测速，选出最快的 IP，这就是我们要的自选 IP。<br>详细测试方法可以参考《Cloudflare 免费CDN自定义节点ip之自选cloudflare 高速节点ip工具分享》。</p><h2 id="CloudFlare-IP-段"><a href="#CloudFlare-IP-段" class="headerlink" title="CloudFlare IP 段"></a>CloudFlare IP 段</h2><pre><code class="hljs">173.245.48.0/20103.21.244.0/22103.22.200.0/22103.31.4.0/22141.101.64.0/18108.162.192.0/18190.93.240.0/20188.114.96.0/20197.234.240.0/22198.41.128.0/17162.158.0.0/15104.16.0.0/12172.64.0.0/13131.0.72.0/22</code></pre><p>TxtCopy<br>详见官方文档。</p><h2 id="百度云合作-IP-段"><a href="#百度云合作-IP-段" class="headerlink" title="百度云合作 IP 段"></a>百度云合作 IP 段</h2><pre><code class="hljs">162.159.208.4-162.159.208.103162.159.209.4-162.159.209.103162.159.210.4-162.159.210.103162.159.211.4-162.159.211.103</code></pre><p>TxtCopy</p><h2 id="添加解析"><a href="#添加解析" class="headerlink" title="添加解析"></a>添加解析</h2><p>跟前面添加解析一样，只是线路类型的区别，不赘述。<br><img src="http://p1.so.qhimgs1.com/t02d5847223060a772c.jpg" alt="请输入图片描述"><br>享受自选优秀 IP 带来的乐趣吧</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>typecho开启伪静态，去掉那个index.php</title>
+    <link href="/posts/c7ed15f2.html"/>
+    <url>/posts/c7ed15f2.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>前言<br>Typecho后台设置永久链接后，会在域名后加上index.php，很多人都接受不了。</p></blockquote><h3 id="例如如下网址："><a href="#例如如下网址：" class="headerlink" title="例如如下网址："></a>例如如下网址：</h3><p><a href="https://blog.telenoya.top/index.php/4.html">https://blog.telenoya.top/index.php/4.html</a></p><h3 id="但我们希望最终的形式是这样："><a href="#但我们希望最终的形式是这样：" class="headerlink" title="但我们希望最终的形式是这样："></a>但我们希望最终的形式是这样：</h3><p><a href="https://blog.telenoya.top/4.html">https://blog.telenoya.top/4.html</a></p><h2 id="那么我们如何做到这样的效果？"><a href="#那么我们如何做到这样的效果？" class="headerlink" title="那么我们如何做到这样的效果？"></a>那么我们如何做到这样的效果？</h2><p><strong>配置服务器的rewrite规则</strong></p><ul><li><p>如果在保存上述配置的时候，typecho无法自动配置，那么你可能需要手动配置服务器的rewrite规则。</p><h2 id="Linux-Apache-环境-htaccess-："><a href="#Linux-Apache-环境-htaccess-：" class="headerlink" title="Linux Apache 环境 (.htaccess)："></a>Linux Apache 环境 (.htaccess)：</h2>  <IfModule mod_rewrite.c>  RewriteEngine On  # 下面是在根目录，文件夹要修改路径  RewriteBase /  RewriteCond %{REQUEST_FILENAME} !-f  RewriteCond %{REQUEST_FILENAME} !-d  RewriteRule ^(.*)$ /index.php/$1 [L]  </IfModule>## Linux Apache 环境（Nginx）：  location / {  index index.html index.php;  if (-f$request_filename/index.html) {  rewrite (.*) $1/index.html break;  }  if (-f $request_filename/index.php) {  rewrite (.*) $1/index.php;  }  if (!-f $request_filename) {  rewrite (.*) /index.php;  }  }## Windows IIS 伪静态 (httpd.ini)：  [ISAPI_Rewrite]  # 3600 = 1 hour  CacheClockRate 3600  RepeatLimit 32  # 中文tag解决  RewriteRule /tag/(.*) /index\.php\?tag=$1  # sitemapxml  RewriteRule /sitemap.xml /sitemap.xml [L]  RewriteRule /favicon.ico /favicon.ico [L]  # 内容页  RewriteRule /(.*).html /index.php/$1.html [L]  # 评论  RewriteRule /(.*)/comment /index.php/$1/comment [L]  # 分类页  RewriteRule /category/(.*) /index.php/category/$1 [L]  # 分页  RewriteRule /page/(.*) /index.php/page/$1 [L]  # 搜索页  RewriteRule /search/(.*) /index.php/search/$1 [L]  # feed  RewriteRule /feed/(.*) /index.php/feed/$1 [L]  # 日期归档  RewriteRule /2(.*) /index.php/2$1 [L]  # 上传图片等  RewriteRule /action(.*) /index.php/action$1 [L]## nginx 配置  server {      listen          80;      server_name     yourdomain.com;      root            /home/yourdomain/www/;      index           index.html index.htm index.php;<pre><code class="hljs">  if (!-e $request_filename) &#123;      rewrite ^(.*)$ /index.php$1 last;  &#125;  location ~ .*\.php(\/.*)*$ &#123;      include fastcgi.conf;      fastcgi_pass  127.0.0.1:9000;  &#125;  access_log logs/yourdomain.log combined;</code></pre><p>  }</p><h2 id="apache-配置"><a href="#apache-配置" class="headerlink" title="apache 配置"></a>apache 配置</h2>  <IfModule mod_rewrite.c>  RewriteEngine On<p>  RewriteBase /</p><p>  RewriteCond %{REQUEST_FILENAME} !-f</p><p>  RewriteCond %{REQUEST_FILENAME} !-d</p><p>  RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]</p>  </IfModule></li></ul><p>2.后台配置typecho伪静态<br><img src="https://img04.sogoucdn.com/app/a/100520146/d2965af219ece628dabac066627fc4a7"><br>3.最后<br>访问 <a href="https://blog.telenoya.top/4.html">https://blog.telenoya.top/4.html</a> 查看效果叭</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>学会排版</title>
+    <link href="/posts/e47a3445.html"/>
+    <url>/posts/e47a3445.html</url>
+    
+    <content type="html"><![CDATA[<p>8月14日学会了排版</p><blockquote><p>这里是引用</p></blockquote><p>这是<em>斜体</em> 或 <em>斜体</em><br>这是<strong>粗体</strong><br>这是<em><strong>加粗斜体</strong></em><br>这是<del>删除线</del></p><p>这是</p><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><p>这是</p><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>这是</p><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><ul><li>无序列表</li></ul><ul><li>无序列表</li></ul><ol><li>有序列表</li><li>有序列表</li></ol><hr><hr><p>##层级排版</p><ul><li>第一级</li><li>第二级</li><li>第三级<br>##表格<table><thead><tr><th>Tables</th><th align="center">Are</th><th align="right">Cool</th></tr></thead><tbody><tr><td>col 3 is</td><td align="center">right-aligned</td><td align="right">$1600</td></tr><tr><td>col 2 is</td><td align="center">centered</td><td align="right">$12</td></tr><tr><td>zebra stripes</td><td align="center">are neat</td><td align="right">$1</td></tr><tr><td>引用内容[^引用自 vircloud.net]</td><td align="center"></td><td align="right"></td></tr></tbody></table></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>本站＆大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>8月14日</title>
+    <link href="/posts/3a0fc917.html"/>
+    <url>/posts/3a0fc917.html</url>
+    
+    <content type="html"><![CDATA[<p>天气晴??</p><h2 id="早上"><a href="#早上" class="headerlink" title="早上"></a>早上</h2><ul><li><h3 id="早上晨起来，开始了游戏之旅"><a href="#早上晨起来，开始了游戏之旅" class="headerlink" title="早上晨起来，开始了游戏之旅"></a>早上晨起来，开始了游戏之旅</h3></li><li><h3 id="赢多输少，还算不错。"><a href="#赢多输少，还算不错。" class="headerlink" title="赢多输少，还算不错。"></a>赢多输少，还算不错。</h3></li><li><h3 id="今天早上起来脑子反应有点迟钝，身体有点不舒服，可能是昨天晚上睡觉睡的有点晚"><a href="#今天早上起来脑子反应有点迟钝，身体有点不舒服，可能是昨天晚上睡觉睡的有点晚" class="headerlink" title="今天早上起来脑子反应有点迟钝，身体有点不舒服，可能是昨天晚上睡觉睡的有点晚"></a>今天早上起来脑子反应有点迟钝，身体有点不舒服，可能是昨天晚上睡觉睡的有点晚</h3></li><li><h3 id="期间询问了朋友的排版方式"><a href="#期间询问了朋友的排版方式" class="headerlink" title="期间询问了朋友的排版方式"></a>期间询问了朋友的排版方式</h3><h2 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h2></li><li><h3 id="在11点左右出去吃了午饭"><a href="#在11点左右出去吃了午饭" class="headerlink" title="在11点左右出去吃了午饭"></a>在11点左右出去吃了午饭</h3></li><li><h3 id="吃完午饭，在外面逛了一会，买了一根绿豆冰棍"><a href="#吃完午饭，在外面逛了一会，买了一根绿豆冰棍" class="headerlink" title="吃完午饭，在外面逛了一会，买了一根绿豆冰棍"></a>吃完午饭，在外面逛了一会，买了一根绿豆冰棍</h3></li><li><h3 id="看了一会网站教程和排版"><a href="#看了一会网站教程和排版" class="headerlink" title="看了一会网站教程和排版"></a>看了一会网站教程和排版</h3><h2 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h2></li><li><h3 id="改善了计划表"><a href="#改善了计划表" class="headerlink" title="改善了计划表"></a>改善了计划表</h3></li><li><h3 id="开始学习"><a href="#开始学习" class="headerlink" title="开始学习"></a>开始学习</h3></li><li><h3 id="学了1个小时，学的云里雾里，懵懵懂懂，放弃学习"><a href="#学了1个小时，学的云里雾里，懵懵懂懂，放弃学习" class="headerlink" title="学了1个小时，学的云里雾里，懵懵懂懂，放弃学习"></a>学了1个小时，学的云里雾里，懵懵懂懂，放弃学习</h3></li><li><h3 id="听了一会音乐，放松一下"><a href="#听了一会音乐，放松一下" class="headerlink" title="听了一会音乐，放松一下"></a>听了一会音乐，放松一下</h3></li><li><h3 id="还是没有兴趣看，身体也有点疲惫，就睡觉了"><a href="#还是没有兴趣看，身体也有点疲惫，就睡觉了" class="headerlink" title="还是没有兴趣看，身体也有点疲惫，就睡觉了"></a>还是没有兴趣看，身体也有点疲惫，就睡觉了</h3></li><li><h3 id="醒来已经傍晚了"><a href="#醒来已经傍晚了" class="headerlink" title="醒来已经傍晚了"></a>醒来已经傍晚了</h3></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活＆日记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>林辰的小日记正式建立</title>
+    <link href="/posts/8ca30577.html"/>
+    <url>/posts/8ca30577.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>这是本人第n次建博客了，但是以前都是帮别人建立<br>这次自己也学着玩，现在还是不知道怎么排版</p></blockquote><h3 id="1-本站建立时间8月13日"><a href="#1-本站建立时间8月13日" class="headerlink" title="1.本站建立时间8月13日"></a>1.本站建立时间<strong>8月13日</strong></h3><h3 id="2-使有的模板是-Cuckoo"><a href="#2-使有的模板是-Cuckoo" class="headerlink" title="2.使有的模板是**Cuckoo**"></a>2.使有的模板是**<a href="https://github.com/bhaoo/cuckoo">Cuckoo</a>**</h3><h3 id="3-主机使用-中国-四川省-成都市"><a href="#3-主机使用-中国-四川省-成都市" class="headerlink" title="3.主机使用:中国 四川省 成都市"></a>3.主机使用:<strong>中国</strong> 四川省 <strong>成都市</strong></h3><h3 id="4-程序使用-Typecho"><a href="#4-程序使用-Typecho" class="headerlink" title="4.程序使用:Typecho"></a>4.程序使用:<strong><a href="http://typecho.org/">Typecho</a></strong></h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>本站＆大事件</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
